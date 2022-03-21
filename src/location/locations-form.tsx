@@ -16,7 +16,7 @@ import {w3cwebsocket as W3CWebSocket} from 'websocket';
 
 const client = new W3CWebSocket('ws://localhost:8000');
 export class LocationsForm extends SearchComponent<Location, LocationSM, HistoryProps, SearchState<Location>> {
-  constructor(props) {
+  constructor(props:any) {
     super(props, applicationContext.getLocationService(), storage.resource(), storage.ui(), showToast, alertError, getLocale, storage.loading());
     this.state = {
       keyword: '',
