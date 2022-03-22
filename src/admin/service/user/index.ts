@@ -7,6 +7,7 @@ export * from './user';
 export class UserClient extends Client<User, string, UserFilter> implements UserService {
   constructor(http: HttpRequest, url: string) {
     super(http, url, userModel);
+    console.log(url)
     this.searchGet = true;
     this.getUsersByRole = this.getUsersByRole.bind(this);
   }

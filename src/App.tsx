@@ -20,14 +20,15 @@ import { config, env } from './config';
 import NotFoundPage from './core/containers/400/page';
 import UnAuthorizedPage from './core/containers/401/page';
 import InternalServerErrorPage from './core/containers/500/page';
-import {DefaultWrapper} from './core/default';
+import { DefaultWrapper } from './core/default';
 import { resources as locales } from './core/resources';
-
+import { LocationsForm } from './location/locations-form';
+import { withDefaultProps } from 'react-hook-core';
 const adminRoutes = LazyLoadModule({ loader: () => import(`./admin`), loading: Loading });
 
 const backofficeRoutes = LazyLoadModule({ loader: () => import(`./backoffice`), loading: Loading });
 
-function parseDate(value: string, format: string): Date|null|undefined {
+function parseDate(value: string, format: string): Date | null | undefined {
   if (!format || format.length === 0) {
     format = 'MM/DD/YYYY';
   } else {
@@ -40,7 +41,7 @@ function parseDate(value: string, format: string): Date|null|undefined {
     return null;
   }
 }
-export function getToken(): string|undefined {
+export function getToken(): string | undefined {
   return undefined;
 }
 export function init() {
@@ -88,6 +89,7 @@ class StatelessApp extends React.Component<RouteComponentProps<any>, any> {
         <Route path='/' exact={true} render={(props) => (<Redirect to='/auth' {...props} />)} />
 
         <DefaultWrapper history={this.props.history} location={this.props.location} match={this.props.match}>
+          <Route path='/location' exact={true} component={withDefaultProps(LocationsForm)}  />
           <Route path='/welcome' component={Welcome} />
           <Route path='' component={adminRoutes} />
           <Route path='' component={backofficeRoutes} />
@@ -107,6 +109,6 @@ export function Welcome() {
     className='view-container menu'
     groupClass='row group hr-height-1'
     headerClass='col s12 m12'
-    subClass='col s6 m6 l3 xl2 group-span'/>;
+    subClass='col s6 m6 l3 xl2 group-span' />;
 }
 export const App = withRouter(StatelessApp);

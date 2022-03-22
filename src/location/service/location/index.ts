@@ -3,8 +3,7 @@ import { ResultInfo } from 'onecore';
 import { HttpRequest } from 'web-clients';
 import { Client } from 'web-clients';
 import config from '../../../config2';
-import { locationModel, LocationFilter, Location, LocationService } from './Location';
-import { LocationRate } from './location-rate';
+import { locationModel, LocationFilter, Location, LocationService, LocationRate } from './location';
 
 export class LocationClient extends Client<Location, string, LocationFilter> implements LocationService {
     constructor(http: HttpRequest, url: string) {
