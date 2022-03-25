@@ -45,7 +45,6 @@ const initialState: UserSearch = {
     q: '',
     userId: '',
     username: '',
-    displayName: '',
     email: '',
     status: []
   },
