@@ -105,7 +105,7 @@
     ],
     "prefer-const": true,
     "quotemark": [
-      true,
+      false,
       "single"
     ],
     "semicolon": [
@@ -141,7 +141,7 @@
     "use-output-property-decorator": false,
     "use-host-property-decorator": false,
     "no-input-rename": false,
-    "no-output-rename": false,
+    "no-output-rename": false, 
     "use-life-cycle-interface": false,
     "use-pipe-transform-interface": false,
     "component-class-suffix": false,

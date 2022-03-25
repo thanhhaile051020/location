@@ -27,6 +27,7 @@ import { withDefaultProps } from 'react-hook-core';
 const adminRoutes = LazyLoadModule({ loader: () => import(`./admin`), loading: Loading });
 
 const backofficeRoutes = LazyLoadModule({ loader: () => import(`./backoffice`), loading: Loading });
+const locationRoutes = LazyLoadModule({ loader: () => import(`./location`), loading: Loading });
 
 function parseDate(value: string, format: string): Date | null | undefined {
   if (!format || format.length === 0) {
@@ -89,10 +90,12 @@ class StatelessApp extends React.Component<RouteComponentProps<any>, any> {
         <Route path='/' exact={true} render={(props) => (<Redirect to='/auth' {...props} />)} />
 
         <DefaultWrapper history={this.props.history} location={this.props.location} match={this.props.match}>
-          <Route path='/location' exact={true} component={withDefaultProps(LocationsForm)}  />
+          {/* <Route path='/location' exact={true} component={withDefaultProps(LocationsForm)}  /> */}
           <Route path='/welcome' component={Welcome} />
           <Route path='' component={adminRoutes} />
           <Route path='' component={backofficeRoutes} />
+          <Route path='' component={locationRoutes} />
+
         </DefaultWrapper>
 
         <Route path='**' component={NotFoundPage} />

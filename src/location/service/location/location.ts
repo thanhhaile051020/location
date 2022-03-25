@@ -1,8 +1,8 @@
 import { Model, ResultInfo } from 'onecore';
 import { GenericSearchService, Filter, Attributes, Service } from 'onecore';
 export interface Location {
-  locationId: string;
-  locationName: string;
+  id: string;
+  name: string;
   description: string;
   longitude: number;
   latitude: number;
@@ -11,13 +11,12 @@ export interface Location {
 }
 // filter
 export interface LocationFilter extends Filter {
-  locationId: string;
-  locationName: string;
+  id: string;
+  name: string;
   description: string;
   longitude: number;
   latitude: number;
 }
-
 
 export interface LocationService extends Service<Location, string, LocationFilter> {
   getLocationByType(type: string): Promise<Location[]>;
@@ -25,12 +24,12 @@ export interface LocationService extends Service<Location, string, LocationFilte
 }
 
 export const locationModel: Attributes = {
-  locationId: {
+  id: {
     key: true,
     required: true,
     q: true
   },
-  locationName: {
+  name: {
     required: true,
     q: true
   },
@@ -52,7 +51,7 @@ export const locationModel: Attributes = {
 
 export interface LocationRate {
   rateId?: string;
-  locationId?: string;
+  id?: string;
   userId?: string;
   rate?: number;
   rateTime?: Date;
@@ -60,7 +59,7 @@ export interface LocationRate {
 }
 
 export interface LocationInfo {
-  locationInfoId?: string; // It's is locationID
+  locationInfoId?: string; // It's is id
   viewCount: number;
   rateLocation: number;
   rate: number;
