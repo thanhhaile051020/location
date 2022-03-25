@@ -5,7 +5,8 @@ export const config = {
   oauth2_url: 'http://localhost:8082/oauth2',
 
   user_url: 'http://localhost:8083/users',
-  cinema_url: 'http://localhost:8080/cinema',
+  location_url: 'http://localhost:8080/locations',
+  cinema_url: 'http://localhost:8083/cinema',
   role_url: 'http://localhost:8083/roles',
   privilege_url: 'http://localhost:8083/privileges',
   audit_log_url: 'http://localhost:8083/audit-logs',

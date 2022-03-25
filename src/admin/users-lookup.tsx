@@ -20,11 +20,12 @@ interface UserSearch extends SearchComponentState<User, UserFilter> {
   statusList: ValueText[];
   users: any[];
   availableUsers: any[];
+  filter:UserFilter;
+  list: any[];
   model: {
     q: string;
     userId: string;
     username: string;
-    displayName: string;
     email: string;
     status: any[];
   };
@@ -45,7 +46,6 @@ const initialState: UserSearch = {
     q: '',
     userId: '',
     username: '',
-    displayName: '',
     email: '',
     status: []
   },
