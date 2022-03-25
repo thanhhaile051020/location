@@ -24,7 +24,7 @@ interface InternalState extends SearchState<Location, LocationFilter> {
 }
 export class LocationsForm extends SearchComponent<Location, LocationFilter, RouteComponentProps, InternalState> {
   constructor(props: any) {
-    super(props, applicationContext.getLocationService(), storage.resource(), message, showAlert, getLocale, storage.ui(),storage.loading(),'');
+    super(props, applicationContext.getLocationService(), storage.resource(), message, showAlert, getLocale, storage.ui(),storage.loading());
     this.state = {
       keyword: '',
       results: [],
@@ -59,8 +59,8 @@ export class LocationsForm extends SearchComponent<Location, LocationFilter, Rou
     //   };
     //   client.send(JSON.stringify(obj));
     // });
+    debugger;
     super.componentDidMount();
-
   }
 
   viewDetail = (e: any, id: string) => {
